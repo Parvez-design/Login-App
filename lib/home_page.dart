@@ -27,7 +27,10 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text('Drawer Header'),
+              child: Text(
+                'Options',
+                textAlign: TextAlign.center,
+              ),
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
