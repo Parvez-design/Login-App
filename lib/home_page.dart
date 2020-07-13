@@ -54,9 +54,9 @@ class _HomePageState extends State<HomePage> {
               onTap: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
                 prefs.remove('userName');
-                SharedPreferences prefs1 =
-                    await SharedPreferences.getInstance();
-                prefs1.remove('password');
+                // SharedPreferences prefs1 =
+                //     await SharedPreferences.getInstance();
+                prefs.remove('password');
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(

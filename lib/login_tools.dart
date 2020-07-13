@@ -77,11 +77,11 @@ class _LoginToolsState extends State<LoginTools> {
                         final enteredUserName = usernameController.text;
                         final enteredPassword = passwordController.text;
                         final prefs = await SharedPreferences.getInstance();
-                        final prefs1 = await SharedPreferences.getInstance();
+                        // final prefs1 = await SharedPreferences.getInstance();
                         prefs.setString('userName', enteredUserName);
-                        prefs1.setString('password', enteredPassword);
+                        prefs.setString('password', enteredPassword);
                         if (prefs.getString('userName') == 'testusername' &&
-                            prefs1.getString('password') == 'testpassword') {
+                            prefs.getString('password') == 'testpassword') {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

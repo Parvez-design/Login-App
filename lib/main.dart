@@ -3,16 +3,16 @@ import './home_page.dart';
 import './login_tools.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-//void main() {
-//runApp(MyApp());
-//}
+// void main() {
+//   runApp(MyApp());
+// }
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var userName = prefs.getString('userName');
   print(userName);
-  SharedPreferences prefs1 = await SharedPreferences.getInstance();
-  var password = prefs1.getString('password');
+  // SharedPreferences prefs1 = await SharedPreferences.getInstance();
+  var password = prefs.getString('password');
   print(password);
   runApp(
     MaterialApp(
