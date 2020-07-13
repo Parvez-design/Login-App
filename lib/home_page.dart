@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:login_app/main.dart';
 import './appinfo.dart';
@@ -14,6 +16,17 @@ class _HomePageState extends State<HomePage> {
   void _submit() {
     Navigator.push(
         context, MaterialPageRoute(builder: (BuildContext ctx) => AppInfo()));
+  }
+
+  Future<Void> _logOutSubmit() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('userName');
+    // SharedPreferences prefs1 =
+    //     await SharedPreferences.getInstance();
+    prefs.remove('password');
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (BuildContext ctx) => LoginPage()));
+    return null;
   }
 
   @override
@@ -43,33 +56,16 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
-                title: InkWell(
-              splashColor: Theme.of(context).primaryColor,
-              child: Row(
-                children: <Widget>[
-                  Icon(Icons.power_settings_new),
-                  Text('LogOut'),
-                ],
-              ),
-              onTap: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                prefs.remove('userName');
-                // SharedPreferences prefs1 =
-                //     await SharedPreferences.getInstance();
-                prefs.remove('password');
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext ctx) => LoginPage()));
-              },
-            )
-                // () {
-                //Navigator.of(context).pushReplacementNamed(
-                //'/',
-                //arguments: Text('Login App'),
-                //);
-                //};
-                ),
+              title: InkWell(
+                  splashColor: Theme.of(context).primaryColor,
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.power_settings_new),
+                      Text('LogOut'),
+                    ],
+                  ),
+                  onTap: _logOutSubmit),
+            ),
           ],
         ),
       ),

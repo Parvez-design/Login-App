@@ -31,20 +31,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: LoginPage(),
-      // routes: {
-      //   '/': (ctx) => LoginPage(),
-      //   HomePage.routeName: (ctx) => HomePage(),
-      //   AppInfo.routeName: (ctx) => AppInfo()
-      // },
     );
   }
 }
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
